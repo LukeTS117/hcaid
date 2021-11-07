@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <style>
+        form {
+            margin: auto;
+            width: 35%;
+        }
+        .result {
+            margin: auto;
+            width: 35%;
+            border: 1px solid #ccc;
+        }
+        .text{
+            margin: auto;
+            width: 35%;
+        }
+    </style>
+    <head>
+        <title>Web app name</title>
+    </head>
+    <h1 class="text">Stroke Prediction</h1>
+    <p class="text"><b>Warning:</b> this is a prediciton, and not actual medical advice.<br>
+       The data used to train the A.I. was incomplete and cannot guarantee a correct outcome<br>
+    </p>
+
+    <form method="POST">
+        <fieldset>
+            <input type="radio" name="gender" value="1">
+            <label for="gender">Male</label>
+            <input type="radio" name="gender" value="0">
+            <label for="gender">Female</label><br>
+            <label for="age">Age:</label>
+            <input type="number" name="age" max="99" required><br>
+            <label>Hyper tension: </label><br/>
+            <input type="radio" name="hypertension" value="1" required>
+            <label for="Yes">Yes</label>
+            <input type="radio" name="hypertension" value="0" required>
+            <label for="No">No</label><br/>
+            <label>Heart disease: </label><br/>
+            <input type="radio" name="heart_disease" value="1" required>
+            <label for="Yes">Yes</label>
+            <input type="radio" name="heart_disease" value="0" required>
+            <label for="No">No</label><br/>
+            <label>Ever married:</label><br/>
+            <input type="radio" name="ever_married" value="1" required>
+            <label for="Yes">Yes</label>
+            <input type="radio" name="ever_married" value="0" required>
+            <label for="No">No</label><br/>
+            <label>Residence type:</label><br/>
+            <input type="radio" name="Residence_type" value="1" required>
+            <label for="Urban">Urban</label>
+            <input type="radio" name="Residence_type" value="0" required>
+            <label for="Rural">Rural</label><br/>
+            <label for="age">Average glucose level:</label>
+            <input type="number" name="glucose_level" max="271" required><br/>
+            <label for="age">BMI:</label>
+            <input type="number" name="bmi" required><br>
+            <label>Work type:</label><br/>
+            <input type="radio" name="work_type" value="work_type_Govt_job" required>
+            <label for="Govt_job">Government job</label>
+            <input type="radio" name="work_type" value="work_type_Never_worked" required>
+            <label for="Never_worked">Never worked</label>
+            <input type="radio" name="work_type" value="work_type_Private" required>
+            <label for="Private">Private</label>
+            <input type="radio" name="work_type" value="work_type_Self_employed" required>
+            <label for="Self_employed">Self employed</label>
+            <input type="radio" name="work_type" value="work_type_children" required>
+            <label for="children">Children</label><br>
+            <label>Smoking status:</label><br/>
+            <input type="radio" name="smoking_status" value="smoking_status_Unknown" required>
+            <label for="formerly_smoked">unknown</label>
+            <input type="radio" name="smoking_status" value="smoking_status_formerly_smoked" required>
+            <label for="formerly_smoked">Formerly smoked</label>
+            <input type="radio" name="smoking_status" value="smoking_status_never_smoked" required>
+            <label for="never_smoked">Never smoked</label>
+            <input type="radio" name="smoking_status" value="smoking_status_smokes" required>
+            <label for="smokes">Smokes</label>
+            <br>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+
+    <div class="result">
+        {% if result %}
+            <br>
+            <br> Prediciton of getting a stroke:
+               <p style="font-size:50px">{{ result }}</p>
+        {% endif %}
+    </div>
+</html>
